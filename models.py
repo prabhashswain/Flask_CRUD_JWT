@@ -8,7 +8,7 @@ class Recipe:
 """
 
 class Recipe(db.Model):
-    Id = db.Column(db.Integer(),primary_key=True)
+    id = db.Column(db.Integer(),primary_key=True)
     name = db.Column(db.String(),nullable=False)
     description = db.Column(db.Text(),nullable=False)
 
@@ -23,7 +23,8 @@ class Recipe(db.Model):
         db.session.delete(self)
         db.session.commit()
 
-    def update(self,title,description):
-        self.title = title
+    def update(self,name,description):
+        self.name = name
         self.description = description
+        db.session.commit()
 
